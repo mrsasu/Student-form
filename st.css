@@ -1,0 +1,48 @@
+
+#ins {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#di {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 100px;
+    
+}
+
+.table, td {
+    border: solid;
+    border-radius: 2px;
+    border-color: rgb(8, 8, 8);
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 80px;
+    text-align: center;
+    
+}
+
+#h {
+    text-align: center;
+}
+
+#tr1 {
+    width: 100%;
+    padding: 0; /* Remove padding from the cell */
+}
+
+button {
+    width: 100%; /* Button takes the full width of the cell */
+    height: 100%; /* Button also takes the full height of the cell */
+    padding: 15px; /* Adjust padding to give a larger clickable area */
+    background-color: lightblue; /* Optional: Button background color */
+    border: none; /* Optional: Remove button border */
+    cursor: pointer; /* Change the cursor to pointer on hover */
+}
+
+button:hover {
+    background-color: skyblue; /* Optional: Change background color on hover */
+}
