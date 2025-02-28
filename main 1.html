@@ -1,0 +1,92 @@
+<html lang="en">
+<head>
+    <title>Data Base</title>
+    <link rel="stylesheet" href="st.css">
+</head>
+
+<body>
+    <h1 id="h">Student Forms</h1>
+    <div id="ins">
+        <table border="3">
+            <tr>
+                <td>Name</td><td><input type="text" placeholder="Enter your Name" id="name"></td>
+            </tr>
+            <tr>
+                <td>Age</td><td><input type="number" placeholder="Enter your Age" id="age"></td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td>
+                    <input type="radio" name="gender" value="male"> Male
+                    <input type="radio" name="gender" value="female"> Female
+                </td>
+            </tr>
+            <tr>
+                <td>Course</td><td><input type="text" placeholder="Enter Course" id="course"></td>
+            </tr>
+            <tr>
+                <td>Email</td><td><input type="email" placeholder="Enter your email" id="mail"></td>
+            </tr>
+            <tr id="tr1">
+                <td colspan="2" style="height: 100%;padding:0;">
+                    <button style="width: 100%; height: 100%;" onclick="store()">Save</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="di">
+        <table border="3" id="table">
+            <tr class="table">
+                <td>Name</td><td>Age</td><td>Gender</td><td>Course</td><td>Email</td><td>Action</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function store() {
+            var na = document.getElementById("name").value;
+            var ag = document.getElementById("age").value;
+            var gen = document.querySelector('input[name="gender"]:checked')?.value;
+            var co = document.getElementById("course").value;
+            var ma = document.getElementById("mail").value;
+
+            if (!na || !ag || !gen || !co || !ma) {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            // Create a new row in the table
+            var table = document.getElementById("table");
+            var newRow = table.insertRow(-1);
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+            var cell3 = newRow.insertCell(2);
+            var cell4 = newRow.insertCell(3);
+            var cell5 = newRow.insertCell(4);
+            var cell6 = newRow.insertCell(5);
+
+            cell1.innerHTML = na;
+            cell2.innerHTML = ag;
+            cell3.innerHTML = gen;
+            cell4.innerHTML = co;
+            cell5.innerHTML = ma;
+            cell6.innerHTML = '<button onclick="deleteRow(this)">Delete</button>';
+
+            // Clear the input fields
+            document.getElementById("name").value = "";
+            document.getElementById("age").value = "";
+            document.getElementById("course").value = "";
+            document.getElementById("mail").value = "";
+            var radios = document.getElementsByName("gender");
+            radios.forEach(radio => radio.checked = false);
+        }
+
+        function deleteRow(button) {
+            var row = button.parentNode.parentNode;
+            row.parentNode.removeChild(row);
+        }
+    </script>
+
+</body>
+</html>
